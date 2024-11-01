@@ -1,0 +1,6 @@
+venv
+env
+.idea
+.env
+.csv
+*.pyc
