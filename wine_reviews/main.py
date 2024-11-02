@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 data = pd.read_csv('./data/winemag-data-130k-v2.csv')
 # first 10 rows
@@ -43,7 +45,8 @@ print("===== total wines by countries ======")
 print("=====================================") 
 wine_by_country = data.groupby('country').size().sort_values(ascending=False)
 print(wine_by_country)
-
+wine_by_country.plot(kind='bar')
+plt.show()
 print("=====================================")
 print("===== total wines by provinces ======")
 print("=====================================")
@@ -56,4 +59,19 @@ print("=====================================")
 wine_by_region = data.groupby('region_1').size().sort_values(ascending=False)
 print(wine_by_region)
 
+print("=====================================")
+print("===== total wines by variety ======")
+print("=====================================")
+wine_by_variety = data.groupby('variety').size().sort_values(ascending=False)
+print(wine_by_variety)
 
+print("=====================================")
+print("===== everage points by country =====")
+print("=====================================")
+
+average_points_by_country = data.groupby('country')['points'].mean().sort_values(ascending=False)
+print(average_points_by_country)
+
+print("=====================================")
+average_points_by_country.plot(kind='bar')
+plt.show()
