@@ -39,14 +39,21 @@ for index, row in worst_wines.iterrows():
     print(f"{row['title']}\t{row['points']}\t{row['price']}\t{row['country']}\t{row['province']}\t{row['region_1']}\t{row['variety']}\t{row['winery']}")
 
 print("=====================================")
-print("===== total wines for countries =====")
+print("===== total wines by countries ======")
 print("=====================================") 
 wine_by_country = data.groupby('country').size().sort_values(ascending=False)
 print(wine_by_country)
 
 print("=====================================")
-print("===== total wines for provinces =====")
+print("===== total wines by provinces ======")
 print("=====================================")
 wine_by_province = data.groupby('province').size().sort_values(ascending=False)
 print(wine_by_province)
+
+print("=====================================")
+print("===== total wines by regions ======")
+print("=====================================")
+wine_by_region = data.groupby('region_1').size().sort_values(ascending=False)
+print(wine_by_region)
+
 
